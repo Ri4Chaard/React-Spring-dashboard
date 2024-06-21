@@ -6,7 +6,12 @@ export const useHttp = () => {
     const [error, setError] = useState(null);
 
     const request = useCallback(
-        async (url: string, method = "GET", body = null, headers: any = {}) => {
+        async (
+            url: string,
+            method = "GET",
+            body: any = null,
+            headers: any = {}
+        ) => {
             setLoading(true);
             setError(null);
 
@@ -28,12 +33,8 @@ export const useHttp = () => {
                 return data;
             } catch (e: any) {
                 setLoading(false);
-                const errorMessage =
-                    e.response?.data?.message || "Щось пішло не так";
+                const errorMessage = e.response?.data || "Something went wrong";
                 setError(errorMessage);
-                if (e.response?.status === 401) {
-                    localStorage.removeItem("userData");
-                }
                 throw e;
             }
         },

@@ -25,7 +25,7 @@ public class Movie {
     private String title;
     @NotEmpty(message = "should have at least one genre")
     private List<String> genres;
-    @NotEmpty (message = "should have at least on day visits")
+    @NotEmpty (message = "should have at least one entry")
     private List<Object> visits;
 
     public Movie(String title, List<String> genres, List<Object> visits) {

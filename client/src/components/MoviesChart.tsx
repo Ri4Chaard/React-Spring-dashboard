@@ -38,7 +38,7 @@ export const MoviesChart = ({ movies }: MoviesProps) => {
             legend: { display: false },
             title: {
                 display: true,
-                text: "Chart.js Bar Chart",
+                text: "Movies",
             },
         },
     };
@@ -47,11 +47,11 @@ export const MoviesChart = ({ movies }: MoviesProps) => {
         labels: movies.map((movie) => movie.title),
         datasets: [
             {
+                label: "Visitors",
                 data: movies.map((movie) =>
                     movie.visits.reduce((sum, visit) => sum + visit.quantity, 0)
                 ),
-
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                backgroundColor: "rgba(55, 181, 76, 0.5)",
             },
         ],
     };

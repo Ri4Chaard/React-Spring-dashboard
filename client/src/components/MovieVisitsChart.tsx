@@ -37,8 +37,8 @@ export const MovieVisitsChart = ({ movie }: MovieProps) => {
         plugins: {
             legend: { display: false },
             title: {
-                display: true,
-                text: "Chart.js Bar Chart",
+                display: false,
+                text: movie.title,
             },
         },
     };
@@ -49,9 +49,9 @@ export const MovieVisitsChart = ({ movie }: MovieProps) => {
         ),
         datasets: [
             {
+                label: "Visitors",
                 data: movie.visits.map((visit: Visit) => visit.quantity),
-
-                backgroundColor: "rgba(255, 99, 132, 0.5)",
+                backgroundColor: "rgba(55, 84, 214, 0.5)",
             },
         ],
     };
