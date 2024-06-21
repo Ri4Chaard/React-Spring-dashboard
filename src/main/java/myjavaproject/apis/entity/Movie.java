@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ import java.util.List;
 public class Movie {
     @Id
     private ObjectId id;
+    @Field("movieId")
+    private String movieId;
     @NotBlank(message = "should not be blank")
     private String title;
     @NotNull(message = "should have at least one genre")
@@ -26,6 +29,7 @@ public class Movie {
     private List<Object> visits;
 
     public Movie(String title, List<String> genres, List<Object> visits) {
+        this.movieId = new ObjectId().toHexString();
         this.title = title;
         this.genres = genres;
         this.visits = visits;
